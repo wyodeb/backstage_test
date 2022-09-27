@@ -1,0 +1,25 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username: backstage
+  password: backstage
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+
+development:
+  <<: *default
+  database: backstage_api_development
+
+test:
+  <<: *default
+  database: backstage_api_test
+
+
+
+#production:
+#  <<: *default
+#  database: backstage_api_production
+#  username: backstage_api
+#  password: <%#= ENV['BACKSTAGE_API_DATABASE_PASSWORD'] %>
